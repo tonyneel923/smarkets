@@ -2,17 +2,7 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { useFetch } from "~/src/hooks";
 import TopEvents from "~/src/components/TopEvents";
-
-const Page = styled.main`
-  padding: 3rem 1.5rem 0rem;
-  background-color: #f2f2f2;
-  height: 100%;
-  width: 100%;
-`;
-
-const Section = styled.section`
-  width: 100%;
-`;
+import { Page, Section } from "../styled-components";
 
 const SportsDashboard = ({ sportType }) => {
   const { data, error, isLoading } = useFetch(

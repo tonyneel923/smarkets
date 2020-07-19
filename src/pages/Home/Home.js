@@ -1,24 +1,14 @@
 import React, { useEffect, useState } from "react";
-import styled from "styled-components";
 import { useFetch } from "~/src/hooks";
 import TopEvents from "../../components/TopEvents/TopEvents";
-
-const Page = styled.main`
-  padding: 3rem 1.5rem 0rem;
-  background-color: #f2f2f2;
-  height: 100%;
-  width: 100%;
-`;
-
-const Section = styled.section`
-  width: 100%;
-`;
+import { Page, Section } from "../styled-components";
 
 const Home = () => {
   const { data, error, isLoading } = useFetch(
     "https://api.smarkets.com/v3/popular/home"
   );
 
+  // production would need consistent ui for loading and error handling across screens
   if (isLoading) {
     return <div>loading...</div>;
   }
@@ -27,6 +17,7 @@ const Home = () => {
     return <div>error</div>;
   }
 
+  // seems top events are consistently returned with this path so assuming that is the case
   const allEvents = data?.home?.[0]?.events;
   return (
     <Page>

@@ -15,10 +15,9 @@ const NavLink = (props) => (
   />
 );
 
-const MenuItem = ({ active, label, onClick, url }) => {
+const MenuItem = ({ label, onClick, url }) => {
   return (
     <Menu.Item
-      active={active}
       onClick={onClick}
       as={(props) => <NavLink {...props} to={url} />}
     >

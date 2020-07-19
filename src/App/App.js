@@ -20,7 +20,7 @@ const App = () => {
       <Router>
         <Home path="/" />
         <SportsDashboard path="sport/:sportType" />
-        <EventDetails path="event-details/:eventId" />
+        <EventDetails path="sport/:sportType/event-details/:eventId" />
       </Router>
     </Layout>
   );

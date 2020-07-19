@@ -15,20 +15,14 @@ const sportTypes = [
   { label: "Football", url: "sport/football" },
   { label: "Baseball", url: "sport/baseball" },
   { label: "Basketball", url: "sport/basketball" },
-  { label: "IceHockey", url: "sport/ice-hockey" },
+  { label: "Ice Hockey", url: "sport/ice-hockey" },
 ];
 
 const SideMenu = ({ location }) => {
-  const currentUrl = "/"; // location.pathname;
   return (
     <StyledMenu vertical>
       {sportTypes.map((sport) => (
-        <MenuItem
-          active={currentUrl === sport.url}
-          onClick={() => {}}
-          label={sport.label}
-          url={sport.url}
-        />
+        <MenuItem onClick={() => {}} label={sport.label} url={sport.url} />
       ))}
     </StyledMenu>
   );

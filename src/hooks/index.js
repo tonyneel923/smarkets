@@ -31,7 +31,13 @@ export function useTransformOnScreenChange(breakpointValues) {
     return screenMeasurement;
   }
 
-  return breakpointValues[screenSize];
+  // need to check if screen is smaller than given breakpoints and default to the smallest supplied
+  return (
+    breakpointValues[screenSize] ||
+    breakpointValues.medium ||
+    breakpointValues.large ||
+    breakpointValues.xl
+  );
 }
 
 /**

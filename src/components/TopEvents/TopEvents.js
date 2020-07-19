@@ -1,4 +1,5 @@
 import React from "react";
+import { Header } from "semantic-ui-react";
 import LargeEventCard from "../LargeEventCard";
 import SmallEventCard from "../SmallEventCard";
 import EventGrid from "../EventGrid";
@@ -52,6 +53,7 @@ const TopEvents = ({ events, header }) => {
   );
 
   // define layouts for breakpoints in screen
+  // test by resizing screen and checking grid layout
   const currentLayout = useTransformOnScreenChange({
     medium: mediumLayout,
     large: largeLayout,
@@ -66,7 +68,6 @@ const TopEvents = ({ events, header }) => {
     return <div>error loading top events</div>;
   }
 
-  // events are not returned in order
   // combining for the layout prop
   // would use one query if graphql
   // if endpoints in prod would probably use selectors
@@ -82,7 +83,7 @@ const TopEvents = ({ events, header }) => {
   });
   return (
     <>
-      <h1>{header}</h1>
+      <Header as="h1">{header}</Header>
       <EventGrid layout={currentLayout}>
         {topEvents.map((event) => (
           <Event key={event.event_id} event={event} />

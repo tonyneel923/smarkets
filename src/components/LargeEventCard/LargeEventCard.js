@@ -1,6 +1,7 @@
 import React from "react";
-import { Card, Icon, Image } from "semantic-ui-react";
+import { Card, Icon, Image, Header } from "semantic-ui-react";
 import styled from "styled-components";
+import { Link } from "@reach/router";
 import Sports from "~/src/static/images/sports.jpeg";
 
 const description =
@@ -15,12 +16,23 @@ const StyledImage = styled(Image)`
   width: 100% !important;
 `;
 
+// if data was different enough as in smarkets ui it would be useful for different card definitions
 const LargeEventCard = ({ event }) => {
   return (
     <StyledCard>
       <Card.Content>
-        <h2 class="header">{event.name}</h2>
-        <StyledImage src={Sports} size="medium" />
+        <Header
+          as={(props) => (
+            <Link
+              {...props}
+              to={`event-details/${event.id}`}
+              state={{ event }}
+            />
+          )}
+        >
+          {event.name}
+        </Header>
+        <StyledImage src={Sports} alt="Sports" size="medium" />
       </Card.Content>
       <Card.Content description={description} />
       <Card.Content extra>
