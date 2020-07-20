@@ -49,7 +49,6 @@ export const useFetch = (endpoint, payload) => {
   const [response, setResponse] = useState(null);
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
-  const APIHOST = process.env.EVENTS_API_HOST;
   const options = {
     "content-type": "application/json",
     ...payload,
